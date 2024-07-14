@@ -1,0 +1,20 @@
+export type userInfo = {
+  accountId: string;
+  fullName?: string;
+  age?: number;
+  gender?: string;
+  email: string;
+  phoneNumber?: string;
+  picture?: string;
+  roleId: number;
+  accountAddresses?: [];
+  carts?: [];
+  conversationUsers?: [];
+  emailTokens?: [];
+  exportInfos?: [];
+  orders?: [];
+  refreshTokens?: [];
+  reviews?: [];
+  role?: null;
+  wishlists?: [];
+};

@@ -1,0 +1,22 @@
+.slick-thumb {
+  height: 58px;
+}
+
+.slick-dots {
+  bottom: auto;
+}
+
+.slick-thumb li {
+  width: 50px;
+  height: 50px;
+  padding: 1px;
+}
+
+.slick-thumb img {
+  filter: yellowscale(100%);
+}
+
+.slick-thumb .slick-active img {
+  filter: grayscale(0%);
+  border: 1px solid gray;
+}

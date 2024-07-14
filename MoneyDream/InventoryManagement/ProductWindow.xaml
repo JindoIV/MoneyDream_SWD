@@ -1,0 +1,534 @@
+﻿<Window x:Class="InventoryManagement.ProductWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InventoryManagement"
+        mc:Ignorable="d"
+        Icon="Resources/Logo_Bg.ico"
+        
+            xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+            xmlns:uc="clr-namespace:InventoryManagement.UserControl"
+            xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+                TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+                TextElement.FontWeight="Regular"
+                TextElement.FontSize="13"
+                TextOptions.TextFormattingMode="Ideal"
+                TextOptions.TextRenderingMode="Auto"
+            Background="#FFE9E6E6"
+            FontFamily="Cascadia Code"
+            ResizeMode="NoResize"
+            WindowStyle="None"
+            WindowStartupLocation="CenterScreen"
+            x:Name="window"
+            DataContext="{StaticResource ProductVM}"
+        
+        Title="Product Management" Width="1200" Height="800">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <uc:ControlBarUC Tag="{Binding Title, ElementName=window}"></uc:ControlBarUC>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <materialDesign:Card Margin="5">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Grid.Column="0"
+                           Content="Information: " 
+                           VerticalAlignment="Center"
+                           FontSize="20"
+                           FontFamily="Comic Sans MS"
+                           FontWeight="Bold"
+                           Foreground="#FF5A6C75"/>
+
+                        <WrapPanel Grid.Column="1">
+                            <Grid>
+                                <WrapPanel>
+                                    <TextBox Text="{Binding ProductIdInfo, UpdateSourceTrigger=PropertyChanged}" 
+                                         Margin="5 5 15 5" 
+                                         materialDesign:HintAssist.Hint="No." 
+                                         materialDesign:HintAssist.Foreground="#FF482E2A"
+                                         materialDesign:TextFieldAssist.UnderlineBrush="#FF482E2A"
+                                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                         FontSize="15" 
+                                         IsReadOnly="True" />
+                                    <TextBox Text="{Binding NameInfo, UpdateSourceTrigger=PropertyChanged}" 
+                                         Margin="5 5 15 5" 
+                                         materialDesign:HintAssist.Hint="Name" 
+                                         materialDesign:HintAssist.Foreground="#FF482E2A"
+                                         materialDesign:TextFieldAssist.UnderlineBrush="#FF482E2A"                                        
+                                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                         FontSize="15" 
+                                         IsReadOnly="True" />
+                                    <TextBox Text="{Binding SelectedSupplierInfo, UpdateSourceTrigger=PropertyChanged}" 
+                                         Margin="5 5 15 5" 
+                                         materialDesign:HintAssist.Hint="Supplier" 
+                                         materialDesign:HintAssist.Foreground="#FF482E2A"
+                                         materialDesign:TextFieldAssist.UnderlineBrush="#FF482E2A"                                         
+                                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                         FontSize="15" 
+                                         IsReadOnly="True" />
+                                    <TextBox Text="{Binding SelectedCategoryInfo, UpdateSourceTrigger=PropertyChanged}" 
+                                         Margin="5 5 15 5" 
+                                         materialDesign:HintAssist.Hint="Category" 
+                                         materialDesign:HintAssist.Foreground="#FF482E2A"
+                                         materialDesign:TextFieldAssist.UnderlineBrush="#FF482E2A"                                         
+                                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                         FontSize="15" 
+                                         IsReadOnly="True" />
+                                    <TextBox Text="{Binding SelectedUnitInfo, UpdateSourceTrigger=PropertyChanged}" 
+                                         Margin="5 5 15 5" 
+                                         materialDesign:HintAssist.Hint="Unit" 
+                                         materialDesign:HintAssist.Foreground="#FF482E2A"
+                                         materialDesign:TextFieldAssist.UnderlineBrush="#FF482E2A"                                         
+                                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                         FontSize="15" 
+                                         IsReadOnly="True" />
+                                    <TextBox Text="{Binding SelectedSizeInfo, UpdateSourceTrigger=PropertyChanged}" 
+                                         Margin="5 5 15 5" 
+                                         materialDesign:HintAssist.Hint="Size" 
+                                         materialDesign:HintAssist.Foreground="#FF482E2A"
+                                         materialDesign:TextFieldAssist.UnderlineBrush="#FF482E2A"                                         
+                                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                         FontSize="15" 
+                                         IsReadOnly="True" />
+                                    <TextBox Text="{Binding OldPriceInfo, UpdateSourceTrigger=PropertyChanged}"
+                                         Margin="5 5 15 5" 
+                                         materialDesign:HintAssist.Hint="Old Price (VNĐ)" 
+                                         materialDesign:HintAssist.Foreground="#FF482E2A"
+                                         materialDesign:TextFieldAssist.UnderlineBrush="#FF482E2A"                                         
+                                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                         FontSize="15" 
+                                         IsReadOnly="True"  />
+                                    <TextBox Text="{Binding DiscountInfo, UpdateSourceTrigger=PropertyChanged}" 
+                                         Margin="5 5 15 5" 
+                                         materialDesign:HintAssist.Hint="Discount (%)" 
+                                         materialDesign:HintAssist.Foreground="#FF482E2A"
+                                         materialDesign:TextFieldAssist.UnderlineBrush="#FF482E2A"                                         
+                                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                         FontSize="15" 
+                                         IsReadOnly="True"  />
+                                    <TextBox Text="{Binding StatusInfo, UpdateSourceTrigger=PropertyChanged}" 
+                                         Margin="5 5 15 5" 
+                                         materialDesign:HintAssist.Hint="Status" 
+                                         materialDesign:HintAssist.Foreground="#FF482E2A"
+                                         materialDesign:TextFieldAssist.UnderlineBrush="#FF482E2A"                                         
+                                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                         FontSize="15" 
+                                         IsReadOnly="True" />
+                                    <TextBox Text="{Binding DescriptionInfo, UpdateSourceTrigger=PropertyChanged}" 
+                                         Margin="5 5 15 5" 
+                                         materialDesign:HintAssist.Hint="Description" 
+                                         materialDesign:HintAssist.Foreground="#FF482E2A"
+                                         materialDesign:TextFieldAssist.UnderlineBrush="#FF482E2A"                                         
+                                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                         FontSize="15" 
+                                         IsReadOnly="True" />
+                                </WrapPanel>
+                            </Grid>
+                        </WrapPanel>
+                    </Grid>
+                </materialDesign:Card>
+            </Grid>
+
+            <ProgressBar Grid.Row="1"
+                        Value="100"
+                        Foreground="#FF8F8E8E"
+                        Background="#FFFFF6F6"/>
+
+            <Grid Grid.Row="2">
+                <materialDesign:Card Margin="5">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Grid.Column="0"
+                           Content="Form: " 
+                           VerticalAlignment="Center"
+                           FontSize="20"
+                           FontFamily="Comic Sans MS"
+                           FontWeight="Bold"
+                           Foreground="#FF5A6C75"/>
+
+                        <WrapPanel Grid.Column="1">
+                            <Grid>
+                                <WrapPanel>
+                                    <TextBox Text="{Binding NameInput, UpdateSourceTrigger=PropertyChanged}" 
+                                         Margin="5 5 15 5" 
+                                         materialDesign:HintAssist.Hint="Name" 
+                                         materialDesign:HintAssist.Foreground="#FF482E2A"
+                                         materialDesign:TextFieldAssist.UnderlineBrush="#FF482E2A"                                         
+                                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                         FontSize="15" 
+                                         materialDesign:TextFieldAssist.HasClearButton="True" />
+                                    <ComboBox Margin="5 5 15 5" 
+                                          DisplayMemberPath="Name" 
+                                          ItemsSource="{Binding Supplier}" 
+                                          SelectedItem="{Binding SelectedSupplierInput, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                                          materialDesign:HintAssist.Hint="Supplier" 
+                                          materialDesign:HintAssist.Foreground="#FF482E2A"
+                                          materialDesign:TextFieldAssist.UnderlineBrush="#FF482E2A"                                          
+                                          Style="{StaticResource MaterialDesignFloatingHintComboBox}" 
+                                          FontSize="15" />
+                                    <ComboBox Margin="5 5 15 5" 
+                                          DisplayMemberPath="Name" 
+                                          ItemsSource="{Binding Category}" 
+                                          SelectedItem="{Binding SelectedCategoryInput, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                                          materialDesign:HintAssist.Hint="Category" 
+                                          materialDesign:HintAssist.Foreground="#FF482E2A"
+                                          materialDesign:TextFieldAssist.UnderlineBrush="#FF482E2A"                                           
+                                          Style="{StaticResource MaterialDesignFloatingHintComboBox}" 
+                                          FontSize="15" />
+                                    <ComboBox Margin="5 5 15 5" 
+                                          DisplayMemberPath="Name" 
+                                          ItemsSource="{Binding Unit}" 
+                                          SelectedItem="{Binding SelectedUnitInput, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                                          materialDesign:HintAssist.Hint="Unit" 
+                                          materialDesign:HintAssist.Foreground="#FF482E2A"
+                                          materialDesign:TextFieldAssist.UnderlineBrush="#FF482E2A"                                           
+                                          Style="{StaticResource MaterialDesignFloatingHintComboBox}" 
+                                          FontSize="15">
+                                    </ComboBox>
+                                    <ComboBox Margin="5 5 15 5"  
+                                          DisplayMemberPath="Name" 
+                                          ItemsSource="{Binding Size}" 
+                                          SelectedItem="{Binding SelectedSizeInput, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                                          materialDesign:HintAssist.Hint="Size" 
+                                          materialDesign:HintAssist.Foreground="#FF482E2A"
+                                          materialDesign:TextFieldAssist.UnderlineBrush="#FF482E2A"                                           
+                                          Style="{StaticResource MaterialDesignFloatingHintComboBox}" 
+                                          FontSize="15">
+                                    </ComboBox>
+                                    <TextBox Text="{Binding OldPriceInput, UpdateSourceTrigger=PropertyChanged}" 
+                                         Margin="5 5 15 5" 
+                                         materialDesign:HintAssist.Hint="Old Price (VNĐ)" 
+                                         materialDesign:HintAssist.Foreground="#FF482E2A"
+                                         materialDesign:TextFieldAssist.UnderlineBrush="#FF482E2A"                                          
+                                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                         FontSize="15" 
+                                         materialDesign:TextFieldAssist.HasClearButton="True" />
+                                    <TextBox Text="{Binding DiscountInput, UpdateSourceTrigger=PropertyChanged}" 
+                                         Margin="5 5 15 5" 
+                                         materialDesign:HintAssist.Hint="Discount (%)" 
+                                         materialDesign:HintAssist.Foreground="#FF482E2A"
+                                         materialDesign:TextFieldAssist.UnderlineBrush="#FF482E2A"                                          
+                                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                         FontSize="15" 
+                                         materialDesign:TextFieldAssist.HasClearButton="True" />
+                                    <ComboBox SelectedItem="{Binding StatusInput, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                                          Margin="5 5 15 5" 
+                                          materialDesign:HintAssist.Hint="Status" 
+                                          materialDesign:HintAssist.Foreground="#FF482E2A"
+                                          materialDesign:TextFieldAssist.UnderlineBrush="#FF482E2A"                                          
+                                          Style="{StaticResource MaterialDesignFloatingHintComboBox}" 
+                                          FontSize="15" >
+                                        <ComboBoxItem Content="Enable"/>
+                                        <ComboBoxItem Content="Disable"/>
+                                    </ComboBox>
+                                    <TextBox Text="{Binding ImageUrlInput, UpdateSourceTrigger=PropertyChanged}" 
+                                         Margin="5 5 15 5" 
+                                         materialDesign:HintAssist.Hint="Image Url" 
+                                         materialDesign:HintAssist.Foreground="#FF482E2A"
+                                         materialDesign:TextFieldAssist.UnderlineBrush="#FF482E2A"                                         
+                                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                         FontSize="15" 
+                                         materialDesign:TextFieldAssist.HasClearButton="True" 
+                                         IsReadOnly="True" />
+                                    <TextBox Text="{Binding ImageUrlSaveInput, UpdateSourceTrigger=PropertyChanged}" 
+                                         Margin="5 5 15 5" materialDesign:HintAssist.Hint="Image Url" 
+                                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                         FontSize="15" 
+                                         materialDesign:TextFieldAssist.HasClearButton="True" 
+                                         materialDesign:HintAssist.Foreground="#FF482E2A"
+                                         materialDesign:TextFieldAssist.UnderlineBrush="#FF482E2A"                                          
+                                         IsReadOnly="True" 
+                                         Visibility="Collapsed" />
+                                    <TextBox Text="{Binding DescriptionInput, UpdateSourceTrigger=PropertyChanged}" 
+                                         Margin="5 5 15 5" 
+                                         materialDesign:HintAssist.Hint="Description" 
+                                         materialDesign:HintAssist.Foreground="#FF482E2A"
+                                         materialDesign:TextFieldAssist.UnderlineBrush="#FF482E2A"                                          
+                                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                         FontSize="15" 
+                                         materialDesign:TextFieldAssist.HasClearButton="True" />
+                                </WrapPanel>
+                            </Grid>
+                        </WrapPanel>
+                    </Grid>
+                </materialDesign:Card>
+            </Grid>
+
+            <ProgressBar Grid.Row="3"
+                        Value="100"
+                        Foreground="#FF8F8E8E"
+                        Background="#FFFFF6F6"/>
+
+            <materialDesign:Card Grid.Row="4" Margin="5">
+                <WrapPanel>
+                    <Button  
+                        IsDefault="True"
+                        Width="120"  
+                        Margin="5"
+                        FontSize="21"
+                        Padding="-1"
+                        FontWeight="Bold"
+                        FontFamily="Gabriola"                        
+                        Command="{Binding RefreshCommand}"
+                        Background="#FFB2ACAC"
+                        Foreground="#FF363C40"
+                        ToolTip="Resource name: MaterialDesignRaisedButton" Content="Refresh"
+                        materialDesign:ButtonProgressAssist.IsIndeterminate="True"
+                        materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
+                        materialDesign:ButtonProgressAssist.Value="-1"
+                        materialDesign:ButtonProgressAssist.IndicatorBackground="#FFB2ACAC"
+                        Style="{StaticResource MaterialDesignRaisedButton}">
+                    </Button>
+
+                    <Button    
+                        IsDefault="True"
+                        Width="120"  
+                        Margin="5"
+                        FontSize="21"
+                        Padding="-1"
+                        FontWeight="Bold"
+                        FontFamily="Gabriola"                        
+                        Command="{Binding AddCommand}"
+                        Background="#FFB2ACAC"
+                        Foreground="#FF363C40"
+                        ToolTip="Resource name: MaterialDesignRaisedButton" Content="Create"
+                        materialDesign:ButtonProgressAssist.IsIndeterminate="True"
+                        materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
+                        materialDesign:ButtonProgressAssist.Value="-1"
+                        materialDesign:ButtonProgressAssist.IndicatorBackground="#FFB2ACAC"
+                        Style="{StaticResource MaterialDesignRaisedButton}">
+                    </Button>
+
+                    <Button
+                        IsDefault="True"
+                        Width="120"
+                        Margin="5"
+                        FontSize="21"
+                        Padding="-1"
+                        FontWeight="Bold"
+                        FontFamily="Gabriola"                       
+                        Command="{Binding EditCommand}"
+                        Background="#FFB2ACAC"
+                        Foreground="#FF363C40"
+                        ToolTip="Resource name: MaterialDesignRaisedButton" Content="Update"
+                        materialDesign:ButtonProgressAssist.IsIndeterminate="True"
+                        materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
+                        materialDesign:ButtonProgressAssist.Value="-1"
+                        materialDesign:ButtonProgressAssist.IndicatorBackground="#FFB2ACAC"
+                        Style="{StaticResource MaterialDesignRaisedButton}">
+                    </Button>
+
+                    <Button
+                        IsDefault="True"
+                        Width="120"
+                        Margin="5"
+                        FontSize="21"
+                        Padding="-1"
+                        FontWeight="Bold"
+                        FontFamily="Gabriola"                        
+                        Command="{Binding DeleteCommand}"
+                        Background="red"
+                        Foreground="#FF363C40"
+                        ToolTip="Resource name: MaterialDesignRaisedButton" Content="Delete"
+                        materialDesign:ButtonProgressAssist.IsIndeterminate="True"
+                        materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
+                        materialDesign:ButtonProgressAssist.Value="-1"
+                        materialDesign:ButtonProgressAssist.IndicatorBackground="#FFB2ACAC"
+                        Style="{StaticResource MaterialDesignRaisedButton}">
+                    </Button>
+
+                    <Button
+                        IsDefault="True"
+                        Width="120"
+                        Margin="5"
+                        FontSize="21"
+                        Padding="-1"
+                        FontWeight="Bold"
+                        FontFamily="Gabriola"                        
+                        Command="{Binding UploadImageCommand}"
+                        Background="#FFB2ACAC"
+                        Foreground="#FF363C40"
+                        ToolTip="Resource name: MaterialDesignRaisedButton" Content="Upload Image"
+                        materialDesign:ButtonProgressAssist.IsIndeterminate="True"
+                        materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
+                        materialDesign:ButtonProgressAssist.Value="-1"
+                        materialDesign:ButtonProgressAssist.IndicatorBackground="#FFB2ACAC"
+                        Style="{StaticResource MaterialDesignRaisedButton}">
+                    </Button>
+                </WrapPanel>
+            </materialDesign:Card>
+
+            <ProgressBar Grid.Row="5"
+                        Value="100"
+                        Foreground="#FF8F8E8E"
+                        Background="#FFFFF6F6"/>
+
+            <materialDesign:Card Grid.Row="6" Margin="5" VerticalAlignment="Stretch">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                    <ListView ItemsSource="{Binding List}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}">
+                        <ListView.Resources>
+                            <Style TargetType="{x:Type GridViewColumnHeader}">
+                                <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
+                                <Setter Property="FontSize" Value="18"></Setter>
+                                <Setter Property="FontWeight" Value="Bold"></Setter>
+                                <Setter Property="FontFamily" Value="Gabriola"></Setter>
+                            </Style>
+                        </ListView.Resources>
+
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="No." Width="60">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Grid Width="30">
+                                                <TextBlock Text="{Binding ProductId, UpdateSourceTrigger=PropertyChanged}" 
+                                                    HorizontalAlignment="Center" 
+                                                    FontFamily="MV Boli"
+                                                    Foreground="#FFCCB124"
+                                                    FontWeight="Bold">
+                                                </TextBlock>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>                                
+                                
+                                <GridViewColumn Header="Image" Width="150">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Grid Width="120">
+                                                <Image Source="{Binding ImageUrl, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                                                       HorizontalAlignment="Center" 
+                                                       VerticalAlignment="Center"
+                                                       Width="100" 
+                                                       Height="80"/>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn Header="Name" Width="150">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Grid Width="120">
+                                                <TextBlock Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" 
+                                                           HorizontalAlignment="Center" 
+                                                           FontFamily="MV Boli"
+                                                           FontWeight="Bold"></TextBlock>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn Header="Suplier" Width="100">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Grid Width="70">
+                                                <TextBlock Text="{Binding Supplier.Name, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" FontFamily="MV Boli"></TextBlock>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn Header="Category" Width="100">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Grid Width="70">
+                                                <TextBlock Text="{Binding Category.Name, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" FontFamily="MV Boli"></TextBlock>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn Header="Unit" Width="100">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Grid Width="70">
+                                                <TextBlock Text="{Binding Unit.Name, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" FontFamily="MV Boli"></TextBlock>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn Header="Size" Width="100">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Grid Width="70">
+                                                <TextBlock Text="{Binding Size.Name, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" FontFamily="MV Boli"></TextBlock>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn Header="Old Price (VNĐ)" Width="130">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Grid Width="100">
+                                                <TextBlock Text="{Binding OldPrice, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" FontFamily="MV Boli"></TextBlock>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn Header="Discount (%)" Width="100">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Grid Width="70">
+                                                <TextBlock Text="{Binding Discount, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" FontFamily="MV Boli"></TextBlock>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn Header="Status" Width="100">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Grid Width="70">
+                                                <TextBlock Text="{Binding Status, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" FontFamily="MV Boli"></TextBlock>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn Header="Description" Width="150">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Grid Width="120">
+                                                <TextBlock Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" FontFamily="MV Boli"></TextBlock>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </ScrollViewer>
+            </materialDesign:Card>
+        </Grid>
+    </Grid>
+</Window>

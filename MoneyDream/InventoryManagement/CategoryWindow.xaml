@@ -1,0 +1,293 @@
+﻿<Window x:Class="InventoryManagement.CategoryWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InventoryManagement"
+        mc:Ignorable="d"
+        Icon="Resources/Logo_Bg.ico"
+        
+            xmlns:uc="clr-namespace:InventoryManagement.UserControl"
+            xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+                TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+                TextElement.FontWeight="Regular"
+                TextElement.FontSize="13"
+                TextOptions.TextFormattingMode="Ideal"
+                TextOptions.TextRenderingMode="Auto"
+            Background="#FFE9E6E6"
+            FontFamily="Cascadia Code"
+            ResizeMode="NoResize"
+            WindowStyle="None"
+            WindowStartupLocation="CenterScreen"
+                x:Name="window"
+                DataContext="{StaticResource CategoryVM}"
+
+                Title="Category Management" Height="600" Width="800">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <uc:ControlBarUC Tag="{Binding Title, ElementName=window}"></uc:ControlBarUC>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <materialDesign:Card Grid.Row="0" Margin="5">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Content="Infomation: " 
+                           Grid.Column="0"
+                           VerticalAlignment="Center"
+                           FontSize="20"
+                           FontFamily="Comic Sans MS"
+                           FontWeight="Bold"
+                           Foreground="#FF5A6C75"/>
+
+                    <WrapPanel Grid.Column="1" Margin="0 0 0 10">
+                        <TextBox Text="{Binding IdInfo, UpdateSourceTrigger=PropertyChanged}" 
+                            Margin="5 5 15 5" 
+                            materialDesign:HintAssist.Hint="No." 
+                            materialDesign:HintAssist.Foreground="#FF482E2A"
+                            materialDesign:TextFieldAssist.UnderlineBrush="#FF482E2A"                             
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                            FontSize="15"
+                            IsReadOnly="True" />
+                        <TextBox Text="{Binding NameInfo, UpdateSourceTrigger=PropertyChanged}" 
+                            Margin="5 5 15 5"
+                            materialDesign:HintAssist.Hint="Name" 
+                            materialDesign:HintAssist.Foreground="#FF482E2A"
+                            materialDesign:TextFieldAssist.UnderlineBrush="#FF482E2A"                             
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                            FontSize="15" 
+                            IsReadOnly="True" />
+                        <TextBox Text="{Binding StatusInfo, UpdateSourceTrigger=PropertyChanged}"
+                            Margin="5 5 15 5" 
+                            materialDesign:HintAssist.Hint="Status" 
+                            materialDesign:HintAssist.Foreground="#FF482E2A"
+                            materialDesign:TextFieldAssist.UnderlineBrush="#FF482E2A"                             
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                            FontSize="15"
+                            IsReadOnly="True" />
+                        <TextBox Text="{Binding DescriptionInfo, UpdateSourceTrigger=PropertyChanged}" 
+                            Margin="5 5 15 5" 
+                            materialDesign:HintAssist.Hint="Description"
+                            materialDesign:HintAssist.Foreground="#FF482E2A"
+                            materialDesign:TextFieldAssist.UnderlineBrush="#FF482E2A"                             
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                            FontSize="15" 
+                            IsReadOnly="True" />
+                    </WrapPanel>
+                </Grid>
+            </materialDesign:Card>
+
+            <ProgressBar Grid.Row="1"
+                        Value="100"
+                        Foreground="#FF8F8E8E"
+                        Background="#FFFFF6F6"/>
+
+            <materialDesign:Card Grid.Row="2" Margin="5">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Content="Form: " 
+                           Grid.Column="0"
+                           VerticalAlignment="Center"
+                           FontSize="20"
+                           FontFamily="Comic Sans MS"
+                           FontWeight="Bold"
+                           Foreground="#FF5A6C75"/>
+
+                    <WrapPanel Grid.Column="1" Margin="0 0 0 10">
+                        <TextBox Text="{Binding NameInput, UpdateSourceTrigger=PropertyChanged}"
+                             Margin="5 5 15 5" 
+                             materialDesign:HintAssist.Hint="Name" 
+                             materialDesign:HintAssist.Foreground="#FF482E2A"
+                             materialDesign:TextFieldAssist.UnderlineBrush="#FF482E2A"                             
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                             FontSize="15" 
+                             materialDesign:TextFieldAssist.HasClearButton="True" />
+                        <ComboBox SelectedItem="{Binding StatusInput, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                              Margin="5 5 15 5" 
+                              materialDesign:HintAssist.Hint="Status"
+                              materialDesign:HintAssist.Foreground="#FF482E2A"
+                              materialDesign:TextFieldAssist.UnderlineBrush="#FF482E2A"                              
+                              Style="{StaticResource MaterialDesignFloatingHintComboBox}" 
+                              FontSize="15" >
+                            <ComboBoxItem Content="Enable"/>
+                            <ComboBoxItem Content="Disable"/>
+                        </ComboBox>
+                        <TextBox Text="{Binding DescriptionInput, UpdateSourceTrigger=PropertyChanged}" 
+                             Margin="5 5 15 5"
+                             materialDesign:HintAssist.Hint="Description" 
+                             materialDesign:HintAssist.Foreground="#FF482E2A"
+                             materialDesign:TextFieldAssist.UnderlineBrush="#FF482E2A"                             
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                             FontSize="15" 
+                             materialDesign:TextFieldAssist.HasClearButton="True" />
+                    </WrapPanel>
+                </Grid>
+            </materialDesign:Card>
+
+            <ProgressBar Grid.Row="3"
+                        Value="100"
+                        Foreground="#FF8F8E8E"
+                        Background="#FFFFF6F6"/>
+
+            <materialDesign:Card Grid.Row="4" Margin="5">
+                <WrapPanel>
+                    <Button    
+                        IsDefault="True"
+                        Width="120"  
+                        Margin="5"
+                        FontSize="21"
+                        Padding="-1"
+                        FontWeight="Bold"
+                        FontFamily="Gabriola"                        
+                        Command="{Binding AddCommand}"
+                        Background="#FFB2ACAC"
+                        Foreground="#FF363C40"
+                        ToolTip="Resource name: MaterialDesignRaisedButton" Content="Create"
+                        materialDesign:ButtonProgressAssist.IsIndeterminate="True"
+                        materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
+                        materialDesign:ButtonProgressAssist.Value="-1"
+                        materialDesign:ButtonProgressAssist.IndicatorBackground="#FFB2ACAC"
+                        Style="{StaticResource MaterialDesignRaisedButton}">
+                    </Button>
+
+                    <Button
+                        IsDefault="True"
+                        Width="120"
+                        Margin="5"
+                        FontSize="21"
+                        Padding="-1"
+                        FontWeight="Bold"
+                        FontFamily="Gabriola"                        
+                        Command="{Binding EditCommand}"
+                        Background="#FFB2ACAC"
+                        Foreground="#FF363C40"
+                        ToolTip="Resource name: MaterialDesignRaisedButton" Content="Update"
+                        materialDesign:ButtonProgressAssist.IsIndeterminate="True"
+                        materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
+                        materialDesign:ButtonProgressAssist.Value="-1"
+                        materialDesign:ButtonProgressAssist.IndicatorBackground="#FFB2ACAC"
+                        Style="{StaticResource MaterialDesignRaisedButton}">
+                    </Button>
+
+                    <Button
+                        IsDefault="True"
+                        Width="120"
+                        Margin="5"
+                        FontSize="21"
+                        Padding="-1"
+                        FontWeight="Bold"
+                        FontFamily="Gabriola"                       
+                        Command="{Binding DeleteCommand}"
+                        Background="red"
+                        Foreground="#FF363C40"
+                        ToolTip="Resource name: MaterialDesignRaisedButton" Content="Delete"
+                        materialDesign:ButtonProgressAssist.IsIndeterminate="True"
+                        materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
+                        materialDesign:ButtonProgressAssist.Value="-1"
+                        materialDesign:ButtonProgressAssist.IndicatorBackground="#FFB2ACAC"
+                        Style="{StaticResource MaterialDesignRaisedButton}">
+                    </Button>
+                </WrapPanel>
+            </materialDesign:Card>
+
+            <ProgressBar Grid.Row="5"
+                        Value="100"
+                        Foreground="#FF8F8E8E"
+                        Background="#FFFFF6F6"/>
+
+            <materialDesign:Card Grid.Row="6" Margin="5" VerticalAlignment="Stretch">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                    <ListView ItemsSource="{Binding List}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}">
+
+                        <ListView.Resources>
+                            <Style TargetType="{x:Type GridViewColumnHeader}">
+                                <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
+                                <Setter Property="FontSize" Value="18"></Setter>
+                                <Setter Property="FontWeight" Value="Bold"></Setter>
+                                <Setter Property="FontFamily" Value="Gabriola"></Setter>
+                            </Style>
+                        </ListView.Resources>
+
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="No." Width="80">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Grid Width="50">
+                                                <TextBlock Text="{Binding CategoryId, UpdateSourceTrigger=PropertyChanged}" 
+                                                           HorizontalAlignment="Center" 
+                                                           FontFamily="MV Boli"
+                                                           Foreground="#FFCCB124"
+                                                           FontWeight="Bold">
+                                                </TextBlock>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn Header="Name" Width="220">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Grid Width="190">
+                                                <TextBlock Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" 
+                                                           HorizontalAlignment="Center" 
+                                                           FontFamily="MV Boli"
+                                                           FontWeight="Bold"></TextBlock>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn Header="Status" Width="220">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Grid Width="190">
+                                                <TextBlock Text="{Binding Status, UpdateSourceTrigger=PropertyChanged}" 
+                                                           HorizontalAlignment="Center" 
+                                                           FontFamily="MV Boli"
+                                                           FontWeight="Bold"></TextBlock>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn Header="Description" Width="260">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Grid Width="230">
+                                                <TextBlock Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" FontFamily="MV Boli"></TextBlock>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </ScrollViewer>
+            </materialDesign:Card>
+        </Grid>
+    </Grid>
+</Window>

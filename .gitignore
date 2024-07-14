@@ -1,0 +1,15 @@
+MoneyDream/.vs
+MoneyDream/MoneyDreamAPI/bin
+MoneyDream/MoneyDreamAPI/obj
+MoneyDream/MoneyDreamClassLibrary/bin
+MoneyDream/MoneyDreamClassLibrary/obj
+MoneyDream/BusinessObject/bin
+MoneyDream/BusinessObject/obj
+MoneyDream/DataAccess/bin
+MoneyDream/DataAccess/obj
+MoneyDream/InventoryManagement/bin
+MoneyDream/InventoryManagement/obj
+
+appsettings.json
+appsettings.Development.json
+

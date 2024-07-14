@@ -1,0 +1,16 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:viewModel="clr-namespace:InventoryManagement.ViewModel">
+    <viewModel:MainViewModel x:Key="MainVM"></viewModel:MainViewModel>
+    <viewModel:CustomerViewModel x:Key="CustomerVM"></viewModel:CustomerViewModel>
+    <viewModel:LoginViewModel x:Key="LoginVM"></viewModel:LoginViewModel>
+    <viewModel:UnitViewModel x:Key="UnitVM"></viewModel:UnitViewModel>
+    <viewModel:SupplierViewModel x:Key="SupplierVM"></viewModel:SupplierViewModel>
+    <viewModel:ProductViewModel x:Key="ProductVM"></viewModel:ProductViewModel>
+    <viewModel:SizeViewModel x:Key="SizeVM"></viewModel:SizeViewModel>
+    <viewModel:CategoryViewModel x:Key="CategoryVM"></viewModel:CategoryViewModel>
+    <viewModel:StockInViewModel x:Key="StockInVM"></viewModel:StockInViewModel>
+    <viewModel:StockOutViewModel x:Key="StockOutVM"></viewModel:StockOutViewModel>
+    <viewModel:ExportDetailViewModel x:Key="ExportDetailVM"></viewModel:ExportDetailViewModel>
+    <viewModel:ImportDetailViewModel x:Key="ImportDetailVM"></viewModel:ImportDetailViewModel>
+</ResourceDictionary>

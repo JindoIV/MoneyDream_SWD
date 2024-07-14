@@ -1,0 +1,6 @@
+@MoneyDreamAPI_HostAddress = http://localhost:5110
+
+GET {{MoneyDreamAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,0 +1,35 @@
+.LoginBG {
+  background-image: url("../../../assets/image/loginBG.jpg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.LoginImage {
+  background-image: url("../../../assets/image/loginImage.jpg");
+  background-position: center right;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+}
+
+.LoginFormContainer {
+  width: 95%;
+  //   border: 1px solid black;
+  height: 100%;
+}
+
+.backContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 3% 0 0 3%;
+}
+
+.LoginForm {
+  width: 70%;
+}
+
+.colorText {
+  color: black;
+}
